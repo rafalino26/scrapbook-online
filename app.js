@@ -4,9 +4,8 @@
   const $ = id => document.getElementById(id);
   const node = (tag, className, text) => { const n = document.createElement(tag); if (className) n.className = className; if (text != null) n.textContent = text; return n; };
   document.title = data.pageTitle;
-  for (const [id,key] of [['home','brand'],['edition','edition'],['contents-toggle','contents'],['previous-label','previous'],['next-label','next'],['hint','hint'],['footer','footer'],['close-viewer','close']]) $(id).textContent = ui[key];
+  for (const [id,key] of [['home','brand'],['edition','edition'],['contents-toggle','contents'],['hint','hint'],['footer','footer'],['close-viewer','close']]) $(id).textContent = ui[key];
   $('book').setAttribute('aria-label',ui.bookLabel);
-  $('previous').setAttribute('aria-label',ui.previous); $('next').setAttribute('aria-label',ui.next);
   const small = matchMedia('(max-width: 760px)'), reduce = matchMedia('(prefers-reduced-motion: reduce)');
   let lastMediaTrigger, flip, rebuilding = false, closingViewer = false;
   function stopVideos(root) { root.querySelectorAll('video').forEach(v => v.pause()); }
@@ -54,10 +53,11 @@
     return article;
   }
   function cover(back = false) {
+    const coverData = back ? (data.backCover || data.cover) : data.cover;
     const page = node('section','cover flip-page');
     page.dataset.density = 'hard';
     const inner = node('div','cover-inner');
-    inner.append(node('p','eyebrow',data.cover.eyebrow),node(back ? 'h2' : 'h1','',data.cover.title));
+    inner.append(node('p','eyebrow',coverData.eyebrow),node(back ? 'h2' : 'h1','',coverData.title));
     if (back) {
       inner.append(node('span','back-ornament','✳'),node('p','hand',ui.end));
     } else {
@@ -65,10 +65,9 @@
       if(data.cover.media) inner.append(mediaCard(data.cover.media,data.cover.title));
       if(data.cover.note) inner.append(node('p','hand cover-note',data.cover.note));
     }
-    inner.append(node('p','cover-signature',data.cover.signature));
-    const button = node('button','open-book',back ? ui.cover+' ↶' : ui.open+' ↗');
-    button.addEventListener('click',()=>go(back ? 0 : 1));
-    inner.append(button); page.append(inner); return page;
+    inner.append(node('p','cover-signature',coverData.signature));
+    inner.append(node('p','cover-swipe',back ? ui.backHint : ui.coverHint));
+    page.append(inner); return page;
   }
   function makePages() {
     const list = [cover()];
@@ -85,8 +84,6 @@
     const isFront=index===0,isBack=index===count-1;
     $('stage').classList.toggle('front-cover',isFront); $('stage').classList.toggle('back-cover',isBack);
     $('stage').classList.toggle('portrait',portrait);
-    $('previous').disabled=isFront; $('next').disabled=isBack;
-    $('next-label').textContent=isFront ? ui.open : ui.next;
     $('position').textContent=isFront ? ui.cover : isBack ? (ui.backCover || ui.cover) : `${ui.page} ${index}${!portrait && index+1<=pages.length ? '–'+(index+1):''} ${ui.of} ${pages.length}`;
     $('desk-caption').textContent=isFront ? data.cover.subtitle : data.cover.title.replaceAll('\n',' ');
     const visible = new Set([index]); if(!portrait && !isFront && !isBack) visible.add(index+1);
@@ -111,7 +108,10 @@
     $('stage').style.width=(small.matches?width:width*2)+'px';
     $('stage').style.height=height+'px';
     const list=makePages();book.append(...list);
-    flip=new St.PageFlip(book,{width:Math.round(width),height,size:'fixed',autoSize:false,usePortrait:true,showCover:true,drawShadow:true,maxShadowOpacity:.32,flippingTime:reduce.matches?1:1050,showPageCorners:!reduce.matches,mobileScrollSupport:true,clickEventForward:true,useMouseEvents:!reduce.matches,disableFlipByClick:true,swipeDistance:35,startPage:Math.min(index,list.length-1)});
+    // Own the gesture lifecycle; PageFlip handles only the animation.
+    // Its corner-only gate also rejects programmatic flipPrev in portrait mode.
+    // Mouse events are off, so disabling that gate does not enable tap-to-flip.
+    flip=new St.PageFlip(book,{width:Math.round(width),height,size:'fixed',autoSize:false,usePortrait:true,showCover:true,drawShadow:true,maxShadowOpacity:.32,flippingTime:reduce.matches?1:850,showPageCorners:false,mobileScrollSupport:false,useMouseEvents:false,disableFlipByClick:false,startPage:Math.min(index,list.length-1)});
     flip.on('flip',sync);flip.on('changeOrientation',sync);
     flip.on('changeState',event=>{
       const busy=event.data!=='read';$('stage').classList.toggle('turning',busy);
@@ -124,16 +124,16 @@
     if(!flip || flip.getState()!=='read')return;
     if(reduce.matches) {flip.turnToPage(index);sync();} else flip.flip(index,'bottom');
   }
-  function next(){if(!$('next').disabled && flip.getState()==='read'){if(reduce.matches){flip.turnToNextPage();sync();}else flip.flipNext('bottom');}}
-  function previous(){if(!$('previous').disabled && flip.getState()==='read'){if(reduce.matches){flip.turnToPrevPage();sync();}else flip.flipPrev('bottom');}}
-  $('next').addEventListener('click',next);$('previous').addEventListener('click',previous);$('home').addEventListener('click',()=>go(0));
+  function next(){if(flip && flip.getCurrentPageIndex()<flip.getPageCount()-1 && flip.getState()==='read'){if(reduce.matches){flip.turnToNextPage();sync();}else flip.flipNext('bottom');}}
+  function previous(){if(flip && flip.getCurrentPageIndex()>0 && flip.getState()==='read'){if(reduce.matches){flip.turnToPrevPage();sync();}else flip.flipPrev('bottom');}}
+  window.bindBookSwipe($('stage'),direction=>direction==='next'?next():previous());
+  $('home').addEventListener('click',()=>go(0));
   [ui.cover,...pages.map(p=>p.title.replaceAll('\n',' '))].forEach((title,i)=>{
     const b=node('button','',`${i ? String(i).padStart(2,'0')+' / ' : ''}${title}`);
     b.addEventListener('click',()=>{go(i);$('contents').hidden=true;$('contents-toggle').setAttribute('aria-expanded','false');$('contents-toggle').focus();});$('contents').append(b);
   });
   $('contents-toggle').addEventListener('click',()=>{$('contents').hidden=!$('contents').hidden;$('contents-toggle').setAttribute('aria-expanded',String(!$('contents').hidden));});
   document.addEventListener('keydown',e=>{if($('viewer').open || /INPUT|TEXTAREA|SELECT|VIDEO/.test(e.target.tagName))return;if(e.key==='ArrowRight'){e.preventDefault();next();}if(e.key==='ArrowLeft'){e.preventDefault();previous();}if(e.key==='Escape'){$('contents').hidden=true;$('contents-toggle').setAttribute('aria-expanded','false');}});
-  // PageFlip ignores button targets: keep image descendants from starting a page drag.
   let resizeTimer;
   window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>initialize(flip?.getCurrentPageIndex() || 0),180);});
   reduce.addEventListener('change',()=>initialize(flip?.getCurrentPageIndex() || 0));

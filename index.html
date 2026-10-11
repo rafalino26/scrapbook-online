@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="id">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#571e2b"><title>Scrapbook</title><link rel="stylesheet" href="style.css"><script src="content.js" defer></script><script src="public/vendor/page-flip.browser.js" defer></script><script src="app.js" defer></script></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#571e2b"><title>Scrapbook</title><link rel="stylesheet" href="style.css"><script src="content.js" defer></script><script src="public/vendor/page-flip.browser.js" defer></script><script src="swipe.js" defer></script><script src="app.js" defer></script></head>
 <body>
 <header><button class="brand" id="home"></button><span id="edition"></span><button class="contents-toggle" id="contents-toggle" aria-expanded="false" aria-controls="contents"></button></header>
 <nav id="contents" hidden></nav>
-<main><div class="desk-caption" id="desk-caption"></div><div class="book-stage" id="stage"><div class="book" id="book"></div></div><div class="reader-controls"><button id="previous"><span aria-hidden="true">←</span><span id="previous-label"></span></button><span id="position" role="status" aria-live="polite"></span><button id="next"><span id="next-label"></span><span aria-hidden="true">→</span></button></div><p class="hint" id="hint"></p></main>
+<main><div class="desk-caption" id="desk-caption"></div><p class="hint" id="hint"></p><div class="book-stage" id="stage" aria-describedby="hint"><div class="book" id="book"></div></div><div class="reader-controls"><span id="position" role="status" aria-live="polite"></span></div></main>
 <footer><span class="ornament" aria-hidden="true">✳</span><p id="footer"></p></footer>
 <dialog id="viewer" aria-labelledby="viewer-caption"><button id="close-viewer"></button><div id="viewer-media"></div><p id="viewer-caption"></p></dialog>
 </body></html>

@@ -66,19 +66,23 @@ Salin salah satu objek di `pages` lalu edit:
 
 `entries` opsional untuk cerita/timeline, dengan label, title, text. Semua halaman mendukung media, paragraf, entries, dan note. Halaman dengan banyak teks memanjang agar tulisan tidak terpotong; pecah surat panjang menjadi beberapa halaman untuk tampilan buku yang seimbang.
 
-Laptop menampilkan dua halaman; HP menampilkan satu. Gunakan panah, keyboard kiri/kanan, swipe horizontal, atau daftar Isi buku. Jumlah halaman dan nomor diperbarui otomatis. Sampul dapat dibuka kembali melalui brand di kiri atas atau daftar isi.
+Laptop menampilkan dua halaman; HP menampilkan satu. Swipe ke kiri untuk lanjut dan ke kanan untuk balik, termasuk dari atas foto/video. Di laptop, klik-tahan lalu geser buku; keyboard kiri/kanan dan daftar Isi buku juga tersedia. Tombol sebelumnya/berikutnya dihilangkan. Jumlah halaman dan nomor diperbarui otomatis. Sampul dapat dibuka kembali melalui brand di kiri atas atau daftar isi.
 
 Simpan lalu refresh browser setelah edit. File baru tidak otomatis masuk buku: masukkan path-nya ke content.js. Gunakan nama file sederhana dan perhatikan huruf besar/kecil. Disarankan MP4 H.264/AAC dan media yang telah dikompres.
 
-Ilustrasi bawaan hanya placeholder. Versi desain scroll sebelumnya tersimpan lengkap di archive-scroll. Font memakai Google Fonts dengan fallback lokal. Untuk hosting cukup upload index.html, style.css, app.js, content.js, dan folder public. Perubahan lokal memerlukan deploy ulang agar terlihat pada website online.
+Ilustrasi bawaan hanya placeholder. Versi desain scroll sebelumnya tersimpan lengkap di archive-scroll. Font memakai Google Fonts dengan fallback lokal. Untuk hosting cukup upload index.html, style.css, app.js, swipe.js, content.js, dan folder public. Perubahan lokal memerlukan deploy ulang agar terlihat pada website online.
 
 ## Animasi buku
 
 Efek lipatan memakai StPageFlip 2.0.7 (MIT), disimpan lokal di `public/vendor/` bersama lisensinya. Sumber: https://github.com/Nodlik/StPageFlip. Sertakan folder vendor saat hosting. Tidak perlu React atau npm.
 
-Tarik sudut lembaran untuk membalik, atau gunakan tombol/keyboard/gestur sentuh. Sampul memakai animasi hardcover, isi memakai lipatan kertas dengan bayangan dinamis. Preferensi sistem reduced motion menonaktifkan animasi dan memakai pergantian halaman langsung.
+Geser horizontal di area buku untuk membalik. Gestur ditangani di swipe.js; setelah dilepas, StPageFlip menjalankan animasi hardcover untuk sampul dan lipatan kertas dengan bayangan untuk isi. Swipe tidak harus cepat, scroll vertikal tetap bisa, dan swipe di atas media tidak membuka viewer. Preferensi sistem reduced motion menonaktifkan animasi dan memakai pergantian halaman langsung.
 
 Ukuran lembaran tetap stabil saat dibalik. Jika tulisan terlalu panjang, bagian isi halaman bisa di-scroll; sebaiknya pecah teks panjang menjadi beberapa halaman. Format content.js dan cara mengganti foto/video tetap sama. Sampul belakang mengikuti judul dan identitas sampul depan, dengan pesan ui.end.
+
+Petunjuk geser bisa diedit di ui.hint, ui.coverHint, dan ui.backHint dalam content.js. Nama puzukuzuw & mizukuzuw dan semua kalimat tetap bisa diganti di file yang sama. Narator memakai puzukuzuw, penerima memakai mizukuzuw.
+
+Tes regresi gestur: `node --test tests/swipe.test.cjs` (butuh Node hanya untuk tes, bukan untuk menjalankan website). Navigasi maju/balik juga diperiksa dengan drag langsung di browser pada viewport 320, 390, 768, dan 1440 piksel, termasuk kembali ke sampul depan dan dari sampul belakang. Ini simulasi ukuran layar di browser desktop, bukan tes sentuhan di perangkat HP fisik.
 
 ## GitHub Pages
 

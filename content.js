@@ -4,33 +4,32 @@
 // poster opsional. Format media sama untuk sampul dan SEMUA halaman.
 // Tambah/hapus/susun ulang objek di pages untuk mengubah isi buku.
 window.SCRAPBOOK = {
-  "pageTitle": "Dua tahun, dan kamu.",
+  "pageTitle": "HELLOW MIZUKUZW SAYANGWW",
   "ui": {
-    "brand": "kita.",
-    "edition": "VOLUME 02 / OUR LITTLE STORY",
-    "bookLabel": "Buku kenangan kita",
-    "open": "Buka buku",
-    "previous": "Sebelumnya",
-    "next": "Berikutnya",
+    "brand": "puzukuzuw & mizukuzuw",
+    "edition": "BUKU KECIL / 02",
+    "bookLabel": "Buku kecil puzukuzuw & mizukuzuw",
     "cover": "Sampul",
-    "backCover": "Sampul belakang",
+    "backCover": "Sampul belakangw",
     "contents": "Isi buku",
     "page": "Halaman",
     "of": "dari",
-    "hint": "Klik panah atau geser untuk membalik halaman",
-    "footer": "Dibuat dengan waktu, kenangan, dan sedikit rindu.",
-    "close": "Tutup",
+    "hint": "Di-swipe yaa · ke kiri buat lanjut, ke kanan buat balik",
+    "coverHint": "cobaw di swipe shishishiww",
+    "backHint": "mau baca lagi? swipe ke kanan yaa",
+    "footer": "Dari puzukuzuw & mizukuzuw, yang lagi kangenw.",
+    "close": "Udah, balik yuk",
     "photo": "Lihat foto",
     "video": "Putar video",
-    "mediaError": "Media belum bisa dimuat. Periksa nama dan path file.",
-    "empty": "Belum ada halaman.",
-    "end": "Sampai di sini dulu. Cerita kita masih berlanjut."
+    "mediaError": "Fotonya atau videonya belum kebuka. Coba cek nama filenya yaa.",
+    "empty": "Halaman puzukuzuw & mizukuzuw masih kosong nih.",
+    "end": "Udah sampai belakangw.\nNanti puzukuzuw & mizukuzuw isi lagi, yaa."
   },
   "cover": {
-    "eyebrow": "UNTUK DUA TAHUN KITA",
-    "title": "Dua tahun,\ndan kamu.",
-    "subtitle": "Sebuah buku kecil tentang kita.",
-    "note": "lebih baik, kalau sama kamu.",
+    "eyebrow": "",
+    "title": "HELLOW MIZUKUZW SAYANGWW",
+    "subtitle": "coba liatw coba liatw",
+    "note": "maaf kalau jelek shishishishiww",
     "media": {
       "type": "photo",
       "src": "public/photos/afternoon.svg",
@@ -39,37 +38,41 @@ window.SCRAPBOOK = {
       "fit": "cover",
       "position": "center"
     },
+    "signature": ""
+  },
+  "backCover": {
+    "eyebrow": "PUZUKUZUW & MIZUKUZUW",
+    "title": "Dua tahun,\nmizukuzuw.",
     "signature": "TANGERANG SELATAN — MANADO"
   },
   "pages": [
     {
-      "label": "SEBELUM KITA MULAI",
-      "title": "Untuk kamu,\ndi sana.",
+      "label": "",
+      "title": "HAPPY ANIVV MIZUKUZUW SAYANGWW",
       "paragraphs": [
-        "Banyak hal berubah dalam dua tahun. Tapi dari semua tempat yang aku tuju, kamu tetap jadi tempat aku ingin pulang.",
-        "Buka pelan-pelan. Ada beberapa hal kecil yang ingin aku simpan di sini."
+        "happy anniv yaa mizukuzw sayangw, makasiww sudahw mau menjalaniw 2 tahun iniw bersama puzuzkuww yaa mizukuzuw sayangww. maaf yaww anniv kali iniw juga lagi lagi mizukuzuw & puzukuzuw ldr hihi sama kayak anniv sebelumnyaw. puzukuzuw bikin web nya pake ai tapi semua kata katanyaw diketik sendiriw beneranwwww tida boongg laww hiheww."
       ],
-      "note": "Dua kota. Satu cerita yang sama.",
+      "note": "yayeyy puzukuzuw & mizukuzuw sudahw 2 tahunww ♡",
       "media": {
         "type": "photo",
         "src": "public/photos/blue-hour.svg",
         "alt": "Ilustrasi contoh langit malam",
-        "note": "somewhere, with you",
+        "note": "kangenw yang ini",
         "fit": "cover",
         "position": "center"
       }
     },
     {
-      "label": "01 / HARI YANG SEDERHANA",
-      "title": "Nggak harus ke mana-mana.",
+      "label": "",
+      "title": "KANGEN BANGET JALAN JALAN HIHEWWW",
       "paragraphs": [
-        "Asal sama kamu, hari biasa pun punya alasan untuk diingat."
+        "puzukuzuw kangenw samaw mizukuzuw sayangw, puzukuzuw pengen ketemuw mizukuzw sayangw buat ngerayain annivnyaw tapiw tida bisa hihew maafff yaa mizukuzw sayangw yaww, jangan dmarahin law puzukuzuwnyaw"
       ],
       "media": {
         "type": "photo",
         "src": "public/photos/afternoon.svg",
         "alt": "Ilustrasi contoh senja",
-        "note": "just us.",
+        "note": "puzukuzuw & mizukuzuw, lagi bareng.",
         "fit": "cover",
         "position": "center"
       }
@@ -78,119 +81,119 @@ window.SCRAPBOOK = {
       "label": "02 / SETELAH HARI PANJANG",
       "title": "Cerita sebelum tidur.",
       "paragraphs": [
-        "Obrolan kecil, kabar hari ini, dan suara kamu di ujung telepon."
+        "Udah capek seharian, tapi masih pengin denger cerita mizukuzuw. Dari yang penting sampai yang random banget, puzukuzuw mau dengerin."
       ],
       "media": {
         "type": "photo",
         "src": "public/photos/blue-hour.svg",
         "alt": "Ilustrasi contoh langit malam",
-        "note": "one more minute?",
+        "note": "bentar lagi, belum mau tutup",
         "fit": "cover",
         "position": "center"
       }
     },
     {
       "label": "03 / HAL KECIL FAVORIT",
-      "title": "Waktu yang nggak terburu-buru.",
+      "title": "Duduk dulu,\nbareng mizukuzuw.",
       "paragraphs": [
-        "Duduk sebentar. Ngobrol tentang apa saja. Menikmati waktu yang kita punya."
+        "Kayakw nggak ngapa-ngapain, cuma ngobrol sambil duduk. Tapi justru momen begini yang suka puzukuzuw kangenin."
       ],
       "media": {
         "type": "photo",
         "src": "public/photos/coffee.svg",
         "alt": "Ilustrasi contoh dua cangkir",
-        "note": "a slow afternoon",
+        "note": "nggak usah buru-buru yaa",
         "fit": "cover",
         "position": "center"
       }
     },
     {
       "label": "04 / SAMPAI KETEMU LAGI",
-      "title": "Masih banyak halaman kosong.",
+      "title": "Puzukuzuw & mizukuzuw,\nnanti tambah lagi yaa.",
       "paragraphs": [
-        "Untuk tempat yang belum kita datangi dan cerita yang belum kita mulai."
+        "Masih banyak tempat yang pengin puzukuzuw & mizukuzuw datengin, makanan yang mau dicoba, sama foto yang belum sempat diambil. Nanti dicicil satu-satu yaa."
       ],
       "media": {
         "type": "photo",
         "src": "public/photos/window.svg",
         "alt": "Ilustrasi contoh jendela",
-        "note": "more to come. ♡",
+        "note": "nunggu ketemu lagi ♡",
         "fit": "cover",
         "position": "center"
       }
     },
     {
-      "label": "JEJAK KITA",
-      "title": "Pelan-pelan,\njadi kita.",
+      "label": "JEJAK PUZUKUZUW & MIZUKUZUW",
+      "title": "Pelan-pelan,\npuzukuzuw & mizukuzuw.",
       "paragraphs": [
-        "Kalau diingat lagi, ternyata kita sudah sampai sejauh ini. Satu obrolan, satu pertemuan, satu hari pada satu waktu."
+        "Dulu baru kenal, sekarang udah dua tahun aja. Lucu ya, dari obrolan biasa bisa jadi sesayang ini."
       ],
       "entries": [
         {
           "label": "AWAL CERITA",
           "title": "Dari kenal, jadi nyaman.",
-          "text": "Ada hal-hal yang tumbuh tanpa banyak rencana. Salah satunya: rasa ingin tahu lebih banyak tentang kamu."
+          "text": "Awalnya cuma ngobrol. Lama-lama jadi nyariin, pengin cerita, terus seneng sendiri kalau ada kabar dari mizukuzuw."
         },
         {
           "label": "SATU TAHUN PERTAMA",
-          "title": "Belajar mengenal kita.",
-          "text": "Tentang kebiasaan kecil, cara saling memahami, dan memilih tetap ada di hari yang nggak selalu mudah."
+          "title": "Makin kenal mizukuzuw.",
+          "text": "Mulai hafal kebiasaan masing-masing. Kadang beda maunya, kadang salah paham, tapi puzukuzuw & mizukuzuw pelan-pelan belajar ngobrol lagi."
         }
       ]
     },
     {
       "label": "DUA KOTA, SATU CERITA",
-      "title": "Dekat, dengan\ncara kita.",
+      "title": "Jauh sih,\ntapi ada mizukuzuw.",
       "paragraphs": [
-        "Ada jarak di antara kota kita.\nTapi kamu tetap dekat di hal-hal kecil setiap hari."
+        "puzukuzuw di Tangsel, mizukuzuw di Manado. Penginnya bisa langsung nyamperin, tapi sekarang bisanya kirim kabar dulu."
       ],
       "entries": [
         {
           "label": "SEKARANG",
           "title": "Jauh, tapi tetap dekat.",
-          "text": "Tangerang Selatan dan Manado punya jaraknya sendiri. Kita punya cara sendiri untuk tetap saling menemani."
+          "text": "Ada chat, telepon, sama cerita random yang bikin hari terasa lebih enak. Tetap aja kadang pengin mizukuzuw ada di sebelah. Kangenw."
         },
         {
           "label": "HALAMAN BERIKUTNYA",
-          "title": "Masih ingin sama kamu.",
-          "text": "Nggak perlu tahu semua jawabannya sekarang. Aku cuma ingin kita terus menulis cerita ini, bareng-bareng."
+          "title": "Nanti ketemu lagi.",
+          "text": "Kalau waktunya pas, puzukuzuw & mizukuzuw jalan lagi yaa. Nggak harus jauh-jauh, yang penting bisa bareng dulu."
         }
       ],
       "note": "TANGSEL ↔ MANADO"
     },
     {
       "label": "SURAT KECIL / 01",
-      "title": "Untuk kamu,",
+      "title": "Buat mizukuzuw,",
       "paragraphs": [
-        "Selamat dua tahun untuk kita.",
-        "Terima kasih sudah jadi bagian dari hari-hariku. Untuk obrolan yang panjang, tawa yang nggak direncanakan, dan hal-hal kecil yang mungkin kamu anggap biasa, tapi berarti banyak buat aku.",
-        "Sekarang kita memang belum bisa ketemu sesering yang kita mau. Kadang rasanya pengin langsung cerita sambil duduk di sebelah kamu. Untuk sementara, semoga halaman kecil ini bisa jadi cara lain buat bilang: aku ingat kita, dan aku sayang kamu."
+        "Happy anniversary yang kedua, mizukuzuw.",
+        "Makasih yaa udah nemenin puzukuzuw sejauh ini. Makasih buat cerita-ceritanya, ketawanya, sama hal kecil yang mungkin mizukuzuw nggak sadar bikin puzukuzuw seneng.",
+        "Lagi jauh begini kadang nyebelin juga. Pengin ketemu malah harus nunggu dulu. Jadi sambil nunggu, puzukuzuw titip sedikit kangen di buku ini. Semoga pas mizukuzuw buka, rasanya kayakw puzukuzuw lagi cerita di sebelah mizukuzuw."
       ]
     },
     {
       "label": "SURAT KECIL / 02",
-      "title": "Untuk hari-hari\nberikutnya.",
+      "title": "Besok-besok,\nbareng lagi yaa.",
       "paragraphs": [
-        "Aku nggak tahu persis tahun berikutnya akan seperti apa. Tapi aku berharap ada lebih banyak waktu bersama, lebih banyak foto yang bisa kita simpan, dan lebih banyak cerita yang bisa kita ketawain nanti.",
-        "Sampai ketemu lagi. Nanti kita tambah halaman baru di sini."
+        "Semoga puzukuzuw & mizukuzuw bisa punya lebih banyak waktu bareng. Foto yang blur juga nggak apa-apa, yang penting ada cerita lucu di belakangnya.",
+        "Nanti kalau ketemu, puzukuzuw & mizukuzuw bikin kenangan baru yaa. Terus tambah halaman lagi di buku ini."
       ],
-      "note": "Dari aku,\nyang masih memilih kamu."
+      "note": "puzukuzuw masih mau sama mizukuzuw."
     },
     {
       "label": "BUKAN AKHIR CERITA",
-      "title": "Masih ingin\nsama kamu.",
+      "title": "Udah dua tahun.\nLanjut yaa?",
       "paragraphs": [
-        "Dua tahun yang sudah lewat. Banyak hari baik yang masih menunggu."
+        "Ini baru sampai sini dulu. Cerita puzukuzuw & mizukuzuw masih panjang, masih banyak yang mau dilakuin bareng."
       ],
       "media": {
         "type": "photo",
         "src": "public/photos/window.svg",
         "alt": "Ilustrasi jendela",
-        "note": "to be continued…",
+        "note": "bersambung, sama mizukuzuw…",
         "fit": "cover",
         "position": "center"
       },
-      "note": "Sampai ketemu lagi."
+      "note": "sayang mizukuzuw. kangenw juga."
     }
   ]
 };
