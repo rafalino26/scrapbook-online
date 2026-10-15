@@ -146,6 +146,7 @@
     body.setAttribute('tabindex','0');
     article.append(body,node('div','folio',String(index+1).padStart(2,'0')));
     if(page.swipeHint)article.append(node('p','hand page-swipe-hint',page.swipeHint));
+    if(page.bottomNote)article.append(node('p','hand album-bottom-note',page.bottomNote));
     theme?.decoratePage(article,index);
     return article;
   }

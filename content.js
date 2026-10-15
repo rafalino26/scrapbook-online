@@ -143,6 +143,7 @@ window.SCRAPBOOK = {
     },
     {
       "layout": "hanging",
+      "bottomNote": "INIW CERITANYAW FOTONYAW DIJEMURWW",
       "mediaItems": [
         {
           "type": "photo",
@@ -175,6 +176,7 @@ window.SCRAPBOOK = {
     },
     {
       "layout": "film",
+      "bottomNote": "KEREN TIDAW BISA JALANWW",
       "mediaItems": [
         {
           "type": "photo",
@@ -271,6 +273,7 @@ window.SCRAPBOOK = {
     },
     {
       "layout": "postage",
+      "bottomNote": "kalau ini kayak perangko gituwww",
       "mediaItems": [
         {
           "type": "photo",
@@ -303,6 +306,7 @@ window.SCRAPBOOK = {
     },
     {
       "layout": "camera",
+      "bottomNote": "kalau iniw memfotoowww yayeyw",
       "mediaItems": [
         {
           "type": "photo",
@@ -352,6 +356,7 @@ window.SCRAPBOOK = {
     },
     {
       "layout": "ribbon",
+      "bottomNote": "iniwww kayak stempel sajaww hihewww",
       "mediaItems": [
         {
           "type": "photo",
