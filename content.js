@@ -1,8 +1,11 @@
 // SEMUA TEKS DAN MEDIA DIEDIT DI FILE INI.
-// Foto: type: "photo", src: "public/photos/nama.jpg"
-// Video: type: "video", src: "public/videos/nama.mp4", poster: "public/photos/sampul.jpg"
-// poster opsional. Format media sama untuk sampul dan SEMUA halaman.
-// Tambah/hapus/susun ulang objek di pages untuk mengubah isi buku.
+// Foto: type: "photo", video: type: "video" (poster opsional).
+// mediaItems: beberapa foto/video di satu halaman; media: satu foto/video.
+// orientation: "portrait" atau "landscape" per foto; ratio opsional (contoh "1 / 1").
+// note: tulisan di dalam polaroid. Kosongkan dengan "" jika tidak ingin caption.
+// Halaman 5–9 sengaja tanpa judul/paragraf. Tambahkan nanti jika diinginkan.
+// Foto asli: public/photos/foto-01.jpeg sampai foto-35.jpeg.
+// Ganti src per media untuk memilih foto; daftar nama lama ada di photo-index.json.
 window.SCRAPBOOK = {
   "pageTitle": "HELLOW MIZUKUZW SAYANGWW",
   "ui": {
@@ -18,12 +21,14 @@ window.SCRAPBOOK = {
     "coverHint": "cobaw di swipe shishishiww",
     "backHint": "mau baca lagi? swipe ke kanan yaa",
     "footer": "Dari puzukuzuw & mizukuzuw, yang lagi kangenw.",
-    "close": "Udah, balik yuk",
+    "close": "balikw",
     "photo": "Lihat foto",
     "video": "Putar video",
     "mediaError": "Fotonya atau videonya belum kebuka. Coba cek nama filenya yaa.",
     "empty": "Halaman puzukuzuw & mizukuzuw masih kosong nih.",
-    "end": "Udah sampai belakangw.\nNanti puzukuzuw & mizukuzuw isi lagi, yaa."
+    "end": "Udah sampai belakangw.\nNanti puzukuzuw & mizukuzuw isi lagi, yaa.",
+    "bookClosed": "bukunya udah ditutupw ♡",
+    "reopenHint": "swipe kanan buat buka lagiw"
   },
   "cover": {
     "eyebrow": "",
@@ -32,11 +37,11 @@ window.SCRAPBOOK = {
     "note": "maaf kalau jelek shishishishiww",
     "media": {
       "type": "photo",
-      "src": "public/photos/afternoon.svg",
-      "alt": "Ilustrasi contoh senja di tepi laut",
+      "src": "public/photos/foto-04.jpeg",
+      "alt": "puzukuzuw & mizukuzuw",
       "note": "",
       "fit": "cover",
-      "position": "center"
+      "position": "center 40%"
     },
     "signature": ""
   },
@@ -50,17 +55,35 @@ window.SCRAPBOOK = {
       "label": "",
       "title": "HAPPY ANIVV MIZUKUZUW SAYANGWW",
       "paragraphs": [
-        "happy anniv yaa mizukuzw sayangw, makasiww sudahw mau menjalaniw 2 tahun iniw bersama puzuzkuww yaa mizukuzuw sayangww. maaf yaww anniv kali iniw juga lagi lagi mizukuzuw & puzukuzuw ldr hihi sama kayak anniv sebelumnyaw. puzukuzuw bikin web nya pake ai tapi semua kata katanyaw diketik sendiriw beneranwwww tida boongg laww hiheww."
+        "happy anniv yaa mizukuzw sayangw, makasiww sudahw mau menjalaniw 2 tahun iniw bersama puzuzkuww yaa mizukuzuw sayangww."
       ],
       "note": "yayeyy puzukuzuw & mizukuzuw sudahw 2 tahunww ♡",
       "media": {
         "type": "photo",
-        "src": "public/photos/blue-hour.svg",
-        "alt": "Ilustrasi contoh langit malam",
-        "note": "kangenw yang ini",
+        "src": "public/photos/foto-33.jpeg",
+        "alt": "puzukuzuw & mizukuzuw",
+        "note": "",
         "fit": "cover",
-        "position": "center"
+        "position": "center",
+        "orientation": "landscape"
       }
+    },
+    {
+      "label": "",
+      "title": "SEMOGA MIZUKUZUW SAYANGWW SENANGWW HIHEW.",
+      "media": {
+        "type": "photo",
+        "src": "public/photos/foto-11.jpeg",
+        "alt": "puzukuzuw & mizukuzuw",
+        "note": "",
+        "fit": "cover",
+        "position": "center",
+        "orientation": "landscape"
+      },
+      "paragraphs": [
+        "maaf yaww anniv kali iniw juga lagi lagi mizukuzuw & puzukuzuw ldr hihi sama kayak anniv sebelumnyaw.",
+        "puzukuzuw bikin web nya pake ai tapi semua kata katanyaw diketik sendiriw beneranwwww tida boongg laww hiheww."
+      ]
     },
     {
       "label": "",
@@ -68,132 +91,314 @@ window.SCRAPBOOK = {
       "paragraphs": [
         "puzukuzuw kangenw samaw mizukuzuw sayangw, puzukuzuw pengen ketemuw mizukuzw sayangw buat ngerayain annivnyaw tapiw tida bisa hihew maafff yaa mizukuzw sayangw yaww, jangan dmarahin law puzukuzuwnyaw"
       ],
-      "media": {
-        "type": "photo",
-        "src": "public/photos/afternoon.svg",
-        "alt": "Ilustrasi contoh senja",
-        "note": "puzukuzuw & mizukuzuw, lagi bareng.",
-        "fit": "cover",
-        "position": "center"
-      }
-    },
-    {
-      "label": "02 / SETELAH HARI PANJANG",
-      "title": "Cerita sebelum tidur.",
-      "paragraphs": [
-        "Udah capek seharian, tapi masih pengin denger cerita mizukuzuw. Dari yang penting sampai yang random banget, puzukuzuw mau dengerin."
-      ],
-      "media": {
-        "type": "photo",
-        "src": "public/photos/blue-hour.svg",
-        "alt": "Ilustrasi contoh langit malam",
-        "note": "bentar lagi, belum mau tutup",
-        "fit": "cover",
-        "position": "center"
-      }
-    },
-    {
-      "label": "03 / HAL KECIL FAVORIT",
-      "title": "Duduk dulu,\nbareng mizukuzuw.",
-      "paragraphs": [
-        "Kayakw nggak ngapa-ngapain, cuma ngobrol sambil duduk. Tapi justru momen begini yang suka puzukuzuw kangenin."
-      ],
-      "media": {
-        "type": "photo",
-        "src": "public/photos/coffee.svg",
-        "alt": "Ilustrasi contoh dua cangkir",
-        "note": "nggak usah buru-buru yaa",
-        "fit": "cover",
-        "position": "center"
-      }
-    },
-    {
-      "label": "04 / SAMPAI KETEMU LAGI",
-      "title": "Puzukuzuw & mizukuzuw,\nnanti tambah lagi yaa.",
-      "paragraphs": [
-        "Masih banyak tempat yang pengin puzukuzuw & mizukuzuw datengin, makanan yang mau dicoba, sama foto yang belum sempat diambil. Nanti dicicil satu-satu yaa."
-      ],
-      "media": {
-        "type": "photo",
-        "src": "public/photos/window.svg",
-        "alt": "Ilustrasi contoh jendela",
-        "note": "nunggu ketemu lagi ♡",
-        "fit": "cover",
-        "position": "center"
-      }
-    },
-    {
-      "label": "JEJAK PUZUKUZUW & MIZUKUZUW",
-      "title": "Pelan-pelan,\npuzukuzuw & mizukuzuw.",
-      "paragraphs": [
-        "Dulu baru kenal, sekarang udah dua tahun aja. Lucu ya, dari obrolan biasa bisa jadi sesayang ini."
-      ],
-      "entries": [
+      "layout": "duo",
+      "mediaItems": [
         {
-          "label": "AWAL CERITA",
-          "title": "Dari kenal, jadi nyaman.",
-          "text": "Awalnya cuma ngobrol. Lama-lama jadi nyariin, pengin cerita, terus seneng sendiri kalau ada kabar dari mizukuzuw."
+          "type": "photo",
+          "src": "public/photos/foto-19.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "landscape",
+          "fit": "cover",
+          "position": "center"
         },
         {
-          "label": "SATU TAHUN PERTAMA",
-          "title": "Makin kenal mizukuzuw.",
-          "text": "Mulai hafal kebiasaan masing-masing. Kadang beda maunya, kadang salah paham, tapi puzukuzuw & mizukuzuw pelan-pelan belajar ngobrol lagi."
+          "type": "photo",
+          "src": "public/photos/foto-18.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
         }
       ]
     },
     {
-      "label": "DUA KOTA, SATU CERITA",
-      "title": "Jauh sih,\ntapi ada mizukuzuw.",
-      "paragraphs": [
-        "puzukuzuw di Tangsel, mizukuzuw di Manado. Penginnya bisa langsung nyamperin, tapi sekarang bisanya kirim kabar dulu."
-      ],
-      "entries": [
+      "label": "",
+      "title": "SEMOGA BISAW KETEMUW MIZUKUZUW SECEPATNYAWW SHIHSIHSHIW",
+      "layout": "duo",
+      "mediaItems": [
         {
-          "label": "SEKARANG",
-          "title": "Jauh, tapi tetap dekat.",
-          "text": "Ada chat, telepon, sama cerita random yang bikin hari terasa lebih enak. Tetap aja kadang pengin mizukuzuw ada di sebelah. Kangenw."
+          "type": "photo",
+          "src": "public/photos/foto-03.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
         },
         {
-          "label": "HALAMAN BERIKUTNYA",
-          "title": "Nanti ketemu lagi.",
-          "text": "Kalau waktunya pas, puzukuzuw & mizukuzuw jalan lagi yaa. Nggak harus jauh-jauh, yang penting bisa bareng dulu."
+          "type": "photo",
+          "src": "public/photos/foto-07.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "landscape",
+          "fit": "cover",
+          "position": "center"
         }
       ],
-      "note": "TANGSEL ↔ MANADO"
-    },
-    {
-      "label": "SURAT KECIL / 01",
-      "title": "Buat mizukuzuw,",
       "paragraphs": [
-        "Happy anniversary yang kedua, mizukuzuw.",
-        "Makasih yaa udah nemenin puzukuzuw sejauh ini. Makasih buat cerita-ceritanya, ketawanya, sama hal kecil yang mungkin mizukuzuw nggak sadar bikin puzukuzuw seneng.",
-        "Lagi jauh begini kadang nyebelin juga. Pengin ketemu malah harus nunggu dulu. Jadi sambil nunggu, puzukuzuw titip sedikit kangen di buku ini. Semoga pas mizukuzuw buka, rasanya kayakw puzukuzuw lagi cerita di sebelah mizukuzuw."
+        "semogaw puzukuzuw dan mizukuzuw bisa ketemu lagiw secepatnya yaw mizukuzuw sayangw yawwww, lovyuuu mizukuzuw sayangwww"
       ]
     },
     {
-      "label": "SURAT KECIL / 02",
-      "title": "Besok-besok,\nbareng lagi yaa.",
-      "paragraphs": [
-        "Semoga puzukuzuw & mizukuzuw bisa punya lebih banyak waktu bareng. Foto yang blur juga nggak apa-apa, yang penting ada cerita lucu di belakangnya.",
-        "Nanti kalau ketemu, puzukuzuw & mizukuzuw bikin kenangan baru yaa. Terus tambah halaman lagi di buku ini."
-      ],
-      "note": "puzukuzuw masih mau sama mizukuzuw."
+      "layout": "hanging",
+      "mediaItems": [
+        {
+          "type": "photo",
+          "src": "public/photos/foto-09.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-10.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-17.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "landscape",
+          "fit": "cover",
+          "position": "center"
+        }
+      ]
     },
     {
-      "label": "BUKAN AKHIR CERITA",
-      "title": "Udah dua tahun.\nLanjut yaa?",
-      "paragraphs": [
-        "Ini baru sampai sini dulu. Cerita puzukuzuw & mizukuzuw masih panjang, masih banyak yang mau dilakuin bareng."
+      "layout": "film",
+      "mediaItems": [
+        {
+          "type": "photo",
+          "src": "public/photos/foto-14.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-15.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-16.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-21.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-24.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-25.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-08.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-13.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-22.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-32.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        }
       ],
+      "filmDuration": 34
+    },
+    {
+      "layout": "postage",
+      "mediaItems": [
+        {
+          "type": "photo",
+          "src": "public/photos/foto-27.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-28.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-12.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "landscape",
+          "fit": "cover",
+          "position": "center"
+        }
+      ]
+    },
+    {
+      "layout": "camera",
+      "mediaItems": [
+        {
+          "type": "photo",
+          "src": "public/photos/foto-34.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "landscape",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-05.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-06.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-35.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        }
+      ],
+      "cameraAutoplay": true,
+      "cameraInterval": 2500,
+      "cameraText": {
+        "shutter": "Jepret foto",
+        "button": "jepretw",
+        "hint": "pencet kameranyaw ♡",
+        "photo": "foto"
+      }
+    },
+    {
+      "layout": "ribbon",
+      "mediaItems": [
+        {
+          "type": "photo",
+          "src": "public/photos/foto-29.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-30.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "portrait",
+          "fit": "cover",
+          "position": "center"
+        },
+        {
+          "type": "photo",
+          "src": "public/photos/foto-20.jpeg",
+          "alt": "puzukuzuw & mizukuzuw",
+          "note": "",
+          "orientation": "landscape",
+          "fit": "cover",
+          "position": "center"
+        }
+      ]
+    },
+    {
+      "label": "",
+      "title": "Udah sampai belakangw.",
+      "closing": true,
+      "paragraphs": [
+        "Nanti puzukuzuw & mizukuzuw isi lagi, yaa."
+      ],
+      "note": "sayang mizukuzuw. kangenw juga.",
       "media": {
         "type": "photo",
-        "src": "public/photos/window.svg",
-        "alt": "Ilustrasi jendela",
-        "note": "bersambung, sama mizukuzuw…",
+        "src": "public/photos/foto-01.jpeg",
+        "alt": "puzukuzuw & mizukuzuw",
+        "note": "",
         "fit": "cover",
-        "position": "center"
-      },
-      "note": "sayang mizukuzuw. kangenw juga."
+        "position": "center",
+        "orientation": "landscape"
+      }
     }
   ]
 };

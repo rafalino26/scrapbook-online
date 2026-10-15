@@ -1,10 +1,60 @@
 <!doctype html>
 <html lang="id">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#571e2b"><title>Scrapbook</title><link rel="stylesheet" href="style.css"><script src="content.js" defer></script><script src="public/vendor/page-flip.browser.js" defer></script><script src="swipe.js" defer></script><script src="app.js" defer></script></head>
-<body>
-<header><button class="brand" id="home"></button><span id="edition"></span><button class="contents-toggle" id="contents-toggle" aria-expanded="false" aria-controls="contents"></button></header>
-<nav id="contents" hidden></nav>
-<main><div class="desk-caption" id="desk-caption"></div><p class="hint" id="hint"></p><div class="book-stage" id="stage" aria-describedby="hint"><div class="book" id="book"></div></div><div class="reader-controls"><span id="position" role="status" aria-live="polite"></span></div></main>
-<footer><span class="ornament" aria-hidden="true">✳</span><p id="footer"></p></footer>
-<dialog id="viewer" aria-labelledby="viewer-caption"><button id="close-viewer"></button><div id="viewer-media"></div><p id="viewer-caption"></p></dialog>
-</body></html>
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5dc8c"><title>Scrapbook Nailong</title>
+  <link rel="stylesheet" href="style.css?v=20261014-collage2"><link rel="stylesheet" href="nailong.css?v=20261015-larger-copy">
+  <link rel="stylesheet" href="music-player.css">
+  <link rel="stylesheet" href="gift-opening.css?v=20261014-opening2">
+  <script src="content.js?v=20261015-ending" defer></script><script src="nailong-content.js?v=20261015-inside-gifs" defer></script>
+  <script src="public/vendor/page-flip.browser.js" defer></script><script src="swipe.js" defer></script>
+  <script src="nailong.js?v=20261015-inside-gifs" defer></script><script src="book-ending.js?v=20261015-walkgif" defer></script><script src="app.js?v=20261015-inside-gifs" defer></script>
+  <script src="music-content.js" defer></script><script src="music-player.js?v=20261014-opening2" defer></script>
+  <link rel="stylesheet" href="album-layout.css?v=20261015-content-update">
+  <link rel="stylesheet" href="book-ending.css?v=20261015-walkgif">
+</head>
+<body data-theme="nailong" class="gift-pending">
+  <dialog id="gift-opening" class="gift-opening" aria-labelledby="gift-title" aria-describedby="gift-description">
+    <p class="gift-eyebrow" id="gift-eyebrow"></p>
+    <div class="gift-illustration" aria-hidden="true"><span>♡</span><img src="public/nailong/nl_cute_3d.webp" alt="" width="170" height="170"><span>✳</span></div>
+    <h2 id="gift-title"></h2><p id="gift-description"></p>
+    <button type="button" id="open-gift">buka duluw ♡</button>
+  </dialog>
+  <header><button class="brand" id="home"></button><span id="edition"></span><button class="contents-toggle" id="contents-toggle" aria-expanded="false" aria-controls="contents"></button></header>
+  <section class="music-player" id="music-player" aria-label="Player lagu kenangan">
+    <div class="music-record" aria-hidden="true"><span>♡</span></div>
+    <div class="music-info"><strong id="music-title">BEAUTiFUL</strong><span id="music-artist">Paul Partohap</span><p id="music-status" role="status" aria-live="polite">lagu kecil buat nemenin baca ♡</p></div>
+    <div class="music-controls">
+      <button type="button" disabled aria-label="Lagu sebelumnya, hanya ada satu lagu"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4h2v12H4zm12 0v12L7 10z"/></svg></button>
+      <button type="button" class="music-toggle" id="music-toggle" aria-label="Putar lagu"><svg class="play-symbol" viewBox="0 0 20 20" aria-hidden="true"><path d="m6 3 11 7-11 7z"/></svg><svg class="pause-symbol" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3h3v14H5zm7 0h3v14h-3z"/></svg></button>
+      <button type="button" disabled aria-label="Lagu berikutnya, hanya ada satu lagu"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M14 4h2v12h-2zM4 4l9 6-9 6z"/></svg></button>
+    </div>
+    <div class="music-timeline" aria-hidden="true"><span id="music-elapsed">0:00</span><div class="music-track"><span id="music-fill"></span></div><span id="music-duration">—:—</span></div>
+  </section>
+  <audio id="background-music" preload="none"></audio>
+  <nav id="contents" hidden></nav>
+  <main>
+    <div class="theme-heading"><img src="public/photos/nailong.svg" alt="" width="52" height="57"><img src="public/photos/nailong.svg" alt="" width="52" height="57"></div>
+    <div class="desk-caption" id="desk-caption"></div><p class="hint" id="hint"></p>
+    <div class="book-desk">
+      <div class="desk-decoration decoration-left" aria-hidden="true"><img src="public/photos/nailong.svg" alt=""><span>♡</span></div>
+      <div class="book-stage" id="stage" aria-describedby="hint"><div class="book" id="book"></div></div>
+      <div class="desk-decoration decoration-right" aria-hidden="true"><span>✳</span><img src="public/photos/nailong.svg" alt=""></div>
+      <button type="button" class="theme-dino desk-friend friend-left" data-pose="0" aria-label="Pencet nailongw yang lagi penasaran"><img src="public/nailong/nl_base_3d.webp" alt="" width="80" height="80"><span aria-hidden="true">♡</span></button>
+      <button type="button" class="theme-dino desk-friend friend-right" data-pose="1" aria-label="Pencet nailongww yang lagi rebahan"><img src="public/nailong/nl_cute_3d.webp" alt="" width="80" height="80"><span aria-hidden="true">✳</span></button>
+      <div class="desk-buddy buddy-left" aria-hidden="true"><img src="public/nailong/nl_cute_3d.webp" alt="" width="60" height="60"></div>
+      <div class="desk-buddy buddy-right" aria-hidden="true"><img src="public/nailong/nl_base_3d.webp" alt="" width="60" height="60"></div>
+    </div>
+    <div class="reader-controls"><span id="position" role="status" aria-live="polite"></span></div>
+    <div class="dino-playground" aria-label="Nailong dan stiker kecil">
+      <button class="desk-sticker" id="desk-sticker" aria-label="Stiker nailongw: geser sedikit, atau gunakan tombol panah"><img src="public/photos/nailong.svg" alt=""><span>kangenw!</span><small>geser dikit ↔</small></button>
+      <span class="playground-note">ada yang ikut<br>kangenw juga ↘</span>
+      <button class="theme-dino desk-dino" aria-label="Pencet nailongww untuk pesan kecil"><img src="public/photos/nailong.svg" alt=""><span>pencet nailongw ♡</span></button>
+    </div>
+    <div class="sticker-collection" role="group" aria-label="Pilih Nailong untuk menemani baca"><p>pilih yang mau nemenin mizukuzuw ♡</p><div id="pose-pickers"></div></div>
+    <p id="dino-message" class="dino-message" role="status" aria-live="polite">nailong kecil di halaman juga bisa dipencet hiheww.</p>
+  </main>
+  <footer><span class="ornament" aria-hidden="true">✳</span><p id="footer"></p><p class="asset-credit">Nailong © 第七印象 · <a href="https://www.nailoong.com/business/ipIncubation/" target="_blank" rel="noopener noreferrer">ilustrasi awal</a> · <a href="https://soylanet.com/en/pack/Z7G5A/" target="_blank" rel="noopener noreferrer">stiker komunitas</a></p></footer>
+  <dialog id="viewer" aria-labelledby="viewer-caption"><button id="close-viewer"></button><div id="viewer-media"></div><p id="viewer-caption"></p></dialog>
+</body>
+</html>

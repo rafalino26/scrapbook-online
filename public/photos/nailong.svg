@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 240">
+                <defs><linearGradient id="yellow" x1="0" x2=".8" y1="0" y2="1"><stop stop-color="#ffe377"/><stop offset="1" stop-color="#f4ba28"/></linearGradient></defs>
+                <ellipse cx="111" cy="223" rx="68" ry="9" fill="#937025" opacity=".12"/>
+                <path d="M158 178q38 9 39-14 14 37-31 41" fill="#efbc35" stroke="#d7a126" stroke-width="2"/>
+                <path d="m158 89 15 10-12 12m10 14 13 10-14 9" fill="#edb42d" stroke="#d7a126" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M52 109C36 52 64 22 105 25c43-1 69 27 66 64-1 14-6 24-7 34 18 19 24 50 10 72-6 12-19 19-35 20H83c-28-1-43-23-39-48 2-22 13-32 15-43" fill="url(#yellow)" stroke="#dca72b" stroke-width="2.5"/>
+                <path d="M65 195q-8 11-3 22 13 13 36 2l4-15m32-2 5 15q20 14 35 0 5-9-6-22" fill="#f8cd49" stroke="#dca72b" stroke-width="2.5"/>
+                <ellipse cx="111" cy="168" rx="34" ry="37" fill="#ffeb95" opacity=".75"/>
+                <path d="M55 136q-22 12-14 30 10 9 24-13m93-15q22 7 19 24-10 10-24-10" fill="#fbd359" stroke="#dca72b" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M79 75q5-5 10-1m35-2q6-3 11 2" fill="none" stroke="#967122" stroke-width="3" stroke-linecap="round"/>
+                <g class="dino-eyes" fill="#49371e"><ellipse cx="86" cy="87" rx="4.5" ry="6"/><ellipse cx="130" cy="87" rx="4.5" ry="6"/></g>
+                <ellipse cx="72" cy="103" rx="12" ry="6" fill="#eea077" opacity=".65"/><ellipse cx="146" cy="103" rx="12" ry="6" fill="#eea077" opacity=".65"/>
+                <path d="M93 107q16 17 32-1" fill="#a6692e" stroke="#755022" stroke-width="2.5" stroke-linecap="round"/><path d="M101 115q8-5 16 0" stroke="#ef9c82" stroke-width="4" fill="none"/>
+                <path d="M64 54q9-14 26-16" fill="none" stroke="#fff0ac" stroke-width="6" stroke-linecap="round" opacity=".8"/>
+              </svg>

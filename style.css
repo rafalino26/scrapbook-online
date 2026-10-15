@@ -16,7 +16,7 @@ header{padding-top:18px;padding-bottom:15px}.desk-caption{margin:4px 0 22px}.boo
 .sheet.--left{background-image:linear-gradient(90deg,transparent 88%,#79623817 98%,#57401922)}
 .sheet.--right{background-image:linear-gradient(90deg,#79623820,transparent 8%)}
 .flip-page .page-running{margin:0 0 17px;padding-bottom:10px;font-size:7px;letter-spacing:1.4px}
-.flip-page .page-body{height:calc(100% - 66px);overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#baaa9260 transparent;padding:0 8px 0 3px}
+.flip-page .page-body{height:calc(100% - 66px);overflow:auto;overscroll-behavior:auto;scrollbar-width:thin;scrollbar-color:#baaa9260 transparent;padding:0 8px 0 3px}
 .flip-page .page-title{font-size:clamp(25px,2.5vw,35px);margin:0 0 18px;line-height:1.1}
 .flip-page .paragraph{font-size:11px;line-height:1.85;margin-bottom:14px}
 .flip-page .polaroid{margin:17px 5px 20px;padding:8px 8px 0;transition:box-shadow 350ms ease,rotate 450ms cubic-bezier(.2,.8,.2,1);transform:none;rotate:-2deg}
@@ -61,3 +61,17 @@ html{overflow-x:clip}
 .brand{font-size:clamp(13px,1.7vw,23px);line-height:1.3;letter-spacing:-.4px;max-width:48%;text-align:left}
 .cover-inner>h1{font-size:clamp(26px,8vw,34px);line-height:1.12}
 .cover-inner>.eyebrow:empty,.cover-inner>.cover-signature:empty,.flip-page .page-running:empty{display:none}
+.flip-page .page-body{overflow:visible;scrollbar-width:none}
+/* Mixed photo/video collages share the same editable media format. */
+.media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 10px;padding:16px 4px 24px;align-items:start}
+.flip-page .media-grid .polaroid{min-width:0;margin:0;padding:7px 7px 20px;rotate:-4deg}
+.flip-page .media-grid .polaroid:nth-child(even){rotate:4deg;translate:0 22px}
+.flip-page .media-grid .polaroid:nth-child(3n){rotate:2deg}
+.media-grid .media-button{aspect-ratio:3/4}
+.media-grid .media-symbol{width:22px;height:22px;font-size:10px;bottom:5px;right:5px}
+.layout-collage .media-grid{gap:36px 12px;padding-top:24px}
+.layout-collage .media-grid>.polaroid:last-child:nth-child(odd){grid-column:1/-1;width:70%;justify-self:center;rotate:-5deg}
+.layout-duo .paragraph{margin-top:10px}
+.closing-page .page-body{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:15px}
+.closing-page .page-title{font-size:35px!important}
+.closing-page .page-note{font-size:25px}

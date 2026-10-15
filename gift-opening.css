@@ -1,0 +1,15 @@
+body.gift-pending{overflow:hidden}
+html:has(body.gift-pending){overflow:hidden}
+.gift-pending>header,.gift-pending>.music-player,.gift-pending>main,.gift-pending>footer{visibility:hidden}
+#gift-opening{width:min(470px,calc(100% - 36px));max-height:calc(100dvh - 36px);padding:34px 35px 28px;border:1px solid #d8c68a70;border-radius:24px;background:#fffbef;color:#795e2b;text-align:center;box-shadow:0 18px 65px #87692812;overflow-y:auto}
+#gift-opening::backdrop{background:#efe7d2;background-image:radial-gradient(ellipse at 50% 30%,#fff8dd,transparent 80%);backdrop-filter:none}
+.gift-eyebrow{font:8px/1.7 var(--sans);letter-spacing:1.5px;color:#a88d55;margin:0 0 20px}
+.gift-illustration{display:flex;justify-content:center;align-items:center;gap:17px;margin:0 0 12px}.gift-illustration img{width:150px;height:150px;object-fit:contain;rotate:-7deg;filter:drop-shadow(0 7px 6px #a8802020)}.gift-illustration>span{font:36px var(--hand);color:#be9e50;rotate:-12deg}.gift-illustration>span:last-child{rotate:12deg}
+#gift-title{font:35px/1.15 var(--serif);letter-spacing:-.6px;margin:15px 0;color:#795e2b}
+#gift-description{font:23px/1.35 var(--hand);color:#a1874e;max-width:300px;margin:0 auto 25px;white-space:pre-line}
+#open-gift{min-height:49px;padding:13px 29px;border:1px solid #d9b85e;background:#f2d17b;border-radius:26px;color:#7b5b25;font:20px var(--hand);box-shadow:0 4px 12px #ad832716;transition:transform .2s,background .2s}
+#open-gift:hover{transform:translateY(-2px);background:#edc967}#open-gift:active{transform:translateY(0) scale(.97)}
+.gift-footnote{font:9px/1.8 var(--sans);color:#b19a6a;margin:18px 0 0}
+@media(max-width:360px){#gift-opening{padding:25px 23px 23px}#gift-title{font-size:29px}#gift-description{font-size:21px}.gift-illustration img{width:125px;height:125px}}
+@media(max-height:600px){#gift-opening{padding-top:20px;padding-bottom:20px}.gift-eyebrow{margin-bottom:10px}.gift-illustration img{width:100px;height:100px}#gift-title{margin:10px 0;font-size:29px}#gift-description{margin-bottom:16px;font-size:21px}.gift-footnote{margin-top:12px}}
+@media(prefers-reduced-motion:reduce){#open-gift{transition:none}}

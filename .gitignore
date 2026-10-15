@@ -1,4 +1,5 @@
 archive-scroll/
+revisions/
 __pycache__/
 *.log
 .DS_Store

@@ -1,0 +1,128 @@
+/* Five scrapbook compositions. Photos/videos remain editable in content.js. */
+.album-page .album-canvas{display:block;position:relative;height:560px;padding:0!important;margin:8px 0 0;isolation:isolate}
+.album-page .album-canvas>.polaroid{position:absolute;z-index:2;translate:none!important;grid-column:auto!important;max-width:none;justify-self:auto;box-shadow:0 7px 12px #70501e24!important;transition:rotate .3s,box-shadow .3s}
+.album-page .album-canvas>.polaroid:hover{rotate:0deg!important;z-index:5}
+.album-canvas>.polaroid .media-button{aspect-ratio:var(--album-ratio,3/4)}
+.album-canvas .album-paper,.album-canvas .album-cord,.album-canvas .album-ribbon,.album-canvas .album-spark{position:absolute;pointer-events:none;z-index:0}
+.album-paper{background:#ead8ac;box-shadow:0 4px 10px #77541c12;rotate:-4deg}
+.album-paper:after{content:'';position:absolute;inset:12px;border:1px solid #a5894630}
+.album-spark{color:#ad8350;font:50px var(--hand);rotate:-15deg}
+.album-mascot{position:absolute;width:74px;height:74px;z-index:4;pointer-events:none;filter:drop-shadow(0 3px 1px #fff9e5)}
+.album-mascot img{width:100%;height:100%;object-fit:contain}
+.album-canvas .photo-friend{width:30px;height:30px}
+.album-canvas .photo-dino-sticker{width:30px}
+/* 5: clipped photographs on a curved string, above a torn-paper portrait. */
+.layout-hanging .album-paper{inset:135px 7% 40px;background:repeating-linear-gradient(#fff9e9 0 24px,#cbb88940 24px 25px);clip-path:polygon(0 2%,96% 0,100% 96%,93% 99%,84% 97%,72% 100%,60% 98%,48% 100%,32% 98%,20% 100%,0 97%);rotate:3deg}
+.layout-hanging .album-cord{top:5px;left:-2%;width:104%;height:70px;border-bottom:2px solid #a58455;border-radius:0 0 50% 50%;rotate:-3deg}
+.layout-hanging .album-canvas>.polaroid:nth-of-type(1){left:3%;top:51px;width:44%;rotate:-9deg}
+.layout-hanging .album-canvas>.polaroid:nth-of-type(2){right:3%;top:47px;width:43%;rotate:8deg}
+.layout-hanging .album-canvas>.polaroid:nth-of-type(3){left:13%;top:305px;width:75%;rotate:-4deg}
+.layout-hanging .album-canvas>.polaroid:nth-of-type(-n+2):before{width:9px;height:26px;left:calc(50% - 4px);top:-16px;background:#ae8a52;clip-path:none;border-radius:2px;box-shadow:inset 2px 0 #e0c18a;rotate:0deg}
+.layout-hanging .album-spark{right:4%;top:247px}
+.layout-hanging .album-mascot{left:0;bottom:6px;rotate:-10deg}
+/* 6: two offset dark film strips with actual sprocket holes. */
+.layout-film .album-paper{left:4%;right:6%;top:15px;bottom:22px;background:#ead6a3;rotate:-3deg}
+.layout-film .album-cord{left:0;top:37px;width:47%;height:485px;background:#665342;border-radius:3px;rotate:-4deg}
+.layout-film .album-ribbon{right:0;top:57px;width:47%;height:485px;background:#665342;border-radius:3px;rotate:4deg}
+.layout-film .album-cord:before,.layout-film .album-ribbon:before{content:'';position:absolute;inset:8px 5px;background:repeating-linear-gradient(transparent 0 7px,#f6ead0 7px 16px,transparent 16px 25px);mask:linear-gradient(90deg,#000 0 5px,transparent 5px calc(100% - 5px),#000 calc(100% - 5px));border-radius:1px}
+.layout-film .album-canvas>.polaroid{width:38%!important;padding:5px!important;background:#e9d6af!important;rotate:-4deg!important;box-shadow:none!important}
+.layout-film .album-canvas>.polaroid:before{display:none}
+.layout-film .album-canvas>.polaroid:nth-of-type(1){left:4%;top:61px}
+.layout-film .album-canvas>.polaroid:nth-of-type(2){right:4%;top:82px;rotate:4deg!important}
+.layout-film .album-canvas>.polaroid:nth-of-type(3){left:6%;top:306px}
+.layout-film .album-canvas>.polaroid:nth-of-type(4){right:6%;top:326px;rotate:4deg!important}
+.layout-film .album-spark{left:41%;top:-5px;font-size:35px}
+.layout-film .album-mascot{left:36%;top:225px;width:65px;height:65px}
+/* 7: scalloped postage frames on layered kraft paper. */
+.layout-postage .album-paper{left:0;top:24px;width:93%;height:470px;background:#e7d4b5;rotate:-5deg}
+.layout-postage .album-ribbon{left:8%;top:0;width:82%;height:515px;background:#f4e8cc;rotate:5deg;box-shadow:0 4px 12px #73582718}
+.layout-postage .album-canvas>.polaroid{padding:12px!important;background:#fffaf0!important;border:1px dashed #cbb695;outline:5px dotted #fffaf0;outline-offset:0}
+.layout-postage .album-canvas>.polaroid:before{display:none}
+.layout-postage .album-canvas>.polaroid:nth-of-type(1){right:4%;top:35px;width:53%;rotate:6deg}
+.layout-postage .album-canvas>.polaroid:nth-of-type(2){left:2%;top:236px;width:52%;rotate:-7deg}
+.layout-postage .album-canvas>.polaroid:nth-of-type(3){right:0;top:390px;width:53%;rotate:5deg}
+.layout-postage .album-cord{right:0;top:262px;width:38%;height:56px;border-top:1px solid #a88b5a;border-bottom:1px solid #a88b5a;rotate:-12deg;opacity:.5}
+.layout-postage .album-spark{left:8%;top:40px}
+.layout-postage .album-mascot{left:4%;top:136px}
+/* 8: a camera window, with three small keepsakes below. */
+.layout-camera .album-paper{left:3%;top:40px;width:94%;height:270px;border-radius:20px;background:linear-gradient(135deg,#faefce,#e2c484);box-shadow:0 7px 12px #77541c25;rotate:-3deg;border:2px solid #ab8b55}
+.layout-camera .album-paper:after{inset:18px;border:1px solid #b9955b;border-radius:13px}
+.layout-camera .album-cord{left:18%;top:25px;width:33%;height:20px;border:2px solid #ab8b55;border-bottom:none;border-radius:6px 6px 0 0;background:#f3e4bb;rotate:-3deg}
+.layout-camera .album-ribbon{right:9%;top:90px;width:25px;height:25px;border:3px solid #8d754e;border-radius:50%;box-shadow:0 40px 0 -5px #9b8056,0 80px 0 -7px #9b8056;rotate:-3deg}
+.layout-camera .album-canvas>.polaroid:nth-of-type(1){left:8%;top:82px;width:73%;padding:7px!important;border-radius:8px;rotate:-3deg}
+.layout-camera .album-canvas>.polaroid:nth-of-type(1):before{display:none}
+.layout-camera .album-canvas>.polaroid:nth-of-type(2){left:0;top:352px;width:35%;rotate:-9deg}
+.layout-camera .album-canvas>.polaroid:nth-of-type(3){left:33%;top:383px;width:35%;rotate:5deg}
+.layout-camera .album-canvas>.polaroid:nth-of-type(4){right:0;top:335px;width:35%;rotate:10deg}
+.layout-camera .album-spark{left:10%;top:293px;font-size:33px}
+.layout-camera .album-mascot{right:0;top:267px;width:65px;height:65px}
+/* 9: a larger portrait tied with a soft ribbon and smaller overlapping photos. */
+.layout-ribbon .album-paper{left:2%;top:52px;width:82%;height:435px;background:#f0dfbc;rotate:-5deg}
+.layout-ribbon .album-canvas>.polaroid:nth-of-type(1){left:4%;top:88px;width:59%;rotate:-7deg}
+.layout-ribbon .album-canvas>.polaroid:nth-of-type(2){right:0;top:33px;width:39%;rotate:8deg}
+.layout-ribbon .album-canvas>.polaroid:nth-of-type(3){right:1%;top:354px;width:62%;rotate:5deg}
+.layout-ribbon .album-ribbon{left:1%;top:65px;width:75%;height:18px;background:#d5a17699;rotate:-7deg;z-index:3;border-top:1px solid #edccaa;border-bottom:1px solid #b78d6850}
+.layout-ribbon .album-cord{left:12%;top:50px;width:40px;height:30px;border:3px solid #bd8c69;border-radius:70% 20% 70% 20%;rotate:-20deg;z-index:4}
+.layout-ribbon .album-cord:after{content:'';position:absolute;left:27px;top:6px;width:36px;height:24px;border:3px solid #bd8c69;border-radius:20% 70% 20% 70%;rotate:25deg}
+.layout-ribbon .album-spark{left:4%;bottom:9px}
+.layout-ribbon .album-mascot{right:2%;top:244px}
+@media(max-width:550px){.album-page .album-canvas{height:530px}.album-mascot{width:57px;height:57px}.album-canvas .photo-friend{width:25px;height:25px}.album-canvas .photo-dino-sticker{width:25px}.layout-film .album-mascot{width:50px;height:50px}.layout-postage .album-canvas>.polaroid{padding:9px!important}}
+@media(prefers-reduced-motion:reduce){.album-page .album-canvas>.polaroid{transition:none}}
+/* Six frames: three in each strip, a little taller than the original pair. */
+.layout-film .album-canvas{height:600px;max-width:340px;margin:8px auto 0}
+.layout-film .album-cord{top:22px;height:550px}
+.layout-film .album-ribbon{top:42px;height:550px}
+.layout-film .album-paper{bottom:15px}
+.layout-film .album-canvas>.polaroid{width:36%!important}
+.layout-film .album-canvas>.polaroid:nth-of-type(1){left:5%;top:42px}
+.layout-film .album-canvas>.polaroid:nth-of-type(2){right:5%;top:62px}
+.layout-film .album-canvas>.polaroid:nth-of-type(3){left:6%;top:215px}
+.layout-film .album-canvas>.polaroid:nth-of-type(4){right:6%;top:235px}
+.layout-film .album-canvas>.polaroid:nth-of-type(5){left:7%;top:388px}
+.layout-film .album-canvas>.polaroid:nth-of-type(6){right:7%;top:408px;rotate:4deg!important}
+.layout-film .album-mascot{left:36%;top:175px}
+/* Two seamless downward reels; the duplicate sequence has the same dimensions. */
+.film-window{position:absolute;top:43px;left:4%;width:38%;height:510px;overflow:hidden;rotate:-4deg;z-index:2;background:#665342}
+.film-window-1{left:auto;right:4%;top:63px;rotate:4deg}
+.film-track{display:flex;flex-direction:column;animation:film-down var(--film-duration,34s) linear infinite;animation-play-state:running;transform:translateY(-50%)}
+.film-window-1 .film-track{animation-duration:calc(var(--film-duration,34s) * 1.12);animation-delay:-8s;animation-direction:reverse}
+.film-sequence{display:flex;flex-direction:column;gap:12px;padding:0 2px 12px;flex-shrink:0}
+.layout-film .film-sequence>.polaroid{position:relative!important;width:100%!important;margin:0!important;padding:5px!important;rotate:0deg!important;translate:none!important;background:#e9d6af!important;box-shadow:none!important;flex-shrink:0}
+.layout-film .film-sequence>.polaroid:before{display:none}
+.film-sequence .photo-friend{width:24px;height:24px;right:0;top:0}
+.film-sequence .photo-dino-sticker{width:24px;right:0;bottom:3px}
+.film-pause{position:absolute;right:2px;top:0;width:30px;height:30px;border-radius:50%;border:1px solid #b99b63;background:#fff7df;color:#80623a;font-size:12px;z-index:6;display:grid;place-items:center;padding:0}
+.layout-film[inert] .film-track,.layout-film.film-paused .film-track,.stage.turning .film-track,.book-stage.turning .film-track,.document-hidden .film-track,body:has(dialog[open]) .film-track,.film-window:hover .film-track,.film-window:focus-within .film-track{animation-play-state:paused}
+@keyframes film-down{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){
+  .film-track{animation:none!important;transform:none;height:100%}
+  .film-sequence{height:100%;display:grid;grid-template-rows:repeat(5,minmax(0,1fr));gap:6px;padding-bottom:0}
+  .film-sequence[aria-hidden=true]{display:none}
+  .layout-film .film-sequence>.polaroid{min-height:0;display:flex}
+  .layout-film .film-sequence .media-button{aspect-ratio:auto!important;min-height:0;height:100%}
+  .film-sequence .media-button img{object-fit:contain!important}
+  .film-pause{display:none}
+}
+/* Instant camera: the flash stays within its body, and one of three prints develops. */
+.layout-camera .album-canvas>.polaroid.camera-preview{left:8%;right:auto;top:82px;width:73%;padding:7px!important;border-radius:8px;rotate:-3deg}
+.layout-camera .album-canvas>.camera-preview:before{display:none}
+.layout-camera .camera-preview .media-button{aspect-ratio:4/3!important}
+.layout-camera .camera-preview .media-button img{object-fit:contain!important;background:#e6d8b8}
+.layout-camera .album-canvas>.camera-print{left:27%;right:auto;top:342px;width:46%;max-width:150px;rotate:5deg}
+.camera-shutter{position:absolute;right:7%;top:84px;width:44px;height:44px;border-radius:50%;border:3px solid #8d754e;background:radial-gradient(circle at 35% 30%,#ffe9ad,#bf9652);box-shadow:0 3px 0 #8e6e3e;color:#6d5129;z-index:7;padding:0;font-size:24px;line-height:1;transition:translate .15s}
+.camera-shutter:active{translate:0 3px;box-shadow:none}
+.camera-shutter:disabled{opacity:1;cursor:wait}
+.camera-shutter-label{position:absolute;top:49px;left:50%;transform:translateX(-50%);white-space:nowrap;font:16px var(--hand);color:#856839}
+.camera-status{position:absolute;left:20%;right:10%;top:310px;text-align:center;font:15px var(--hand);color:#96723a;pointer-events:none}
+.camera-flash{position:absolute;left:3%;top:40px;width:94%;height:270px;border-radius:20px;rotate:-3deg;background:radial-gradient(ellipse at 72% 18%,#fff,#fffcecb8 50%,#fff0);opacity:0;z-index:8;pointer-events:none}
+.camera-shoot .camera-flash{animation:camera-local-flash 260ms ease-out both}
+.camera-print.photo-developed{animation:camera-print-out 560ms cubic-bezier(.15,.7,.25,1) both}
+@keyframes camera-local-flash{0%{opacity:0}20%{opacity:.9}100%{opacity:0}}
+@keyframes camera-print-out{from{opacity:0;transform:translateY(-42px) scale(.94);filter:sepia(.45) brightness(1.4)}to{opacity:1;transform:translateY(0) scale(1);filter:none}}
+@media(prefers-reduced-motion:reduce){.camera-flash{display:none}.camera-print.photo-developed{animation:none}.camera-shutter{transition:none}}
+.closing-page:has(.polaroid) .page-body{gap:8px}
+.closing-page:has(.polaroid) .closing-illustration{width:60px;height:60px;margin:0 auto}
+.closing-page .polaroid{width:82%;max-width:260px;flex-shrink:0}
+.closing-page .page-body>.polaroid{margin:12px auto!important}
+.closing-page:has(.polaroid) .paragraph{margin-bottom:6px}
+.closing-page:has(.polaroid) .page-note{margin:8px 0!important}

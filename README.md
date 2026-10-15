@@ -1,99 +1,80 @@
-# Buku digital kita
+# Scrapbook Nailong
 
-HTML + CSS + JavaScript. Buka index.html langsung, atau jalankan:
+Website scrapbook anniversary puzukuzuw & mizukuzuw. Satu versi utama di `index.html`, memakai HTML, CSS, dan JavaScript tanpa proses build atau backend.
+
+## Preview lokal
 
 ```powershell
-python -m http.server 4173 --bind 127.0.0.1
+python -m http.server 4182 --bind 127.0.0.1
 ```
 
-Preview: http://127.0.0.1:4173
+Buka http://127.0.0.1:4182/.
 
-## Semua konten di content.js
+## Edit isi buku
 
-- `pageTitle`: judul tab browser.
-- `ui`: seluruh label tombol, petunjuk, nama brand, footer, dan pesan kesalahan.
-- `cover`: judul, subjudul, catatan, media, dan tulisan kecil sampul.
-- `pages`: daftar halaman. Urutan objek = urutan halaman. Tambahkan, pindahkan, atau hapus objek untuk menyusun buku.
+- `content.js`: semua judul, paragraf, caption, petunjuk, dan urutan foto/halaman.
+- `nailong-content.js`: teks pembuka, pilihan stiker statis/GIF, pesan klik, dan penutup.
+- `music-content.js`: file lagu, judul, artis, volume, dan loop.
 
-Judul bisa memakai `\n` untuk baris baru. `paragraphs` berisi daftar paragraf. Semua teks ditampilkan sebagai teks biasa, bukan HTML. Untuk tanda kutip di dalam string, gunakan `\"`.
-
-## Foto dan video menggunakan format yang SAMA di semua tempat
-
-Drop file melalui File Explorer/editor ke public/photos atau public/videos. Kemudian edit `media` di `cover` atau di halaman mana pun:
+Foto ada di `public/photos/foto-01.jpeg` sampai `foto-35.jpeg`. Daftar nama asli dan dimensi disimpan di `photo-index.json`. Drop foto baru ke folder tersebut, lalu ganti `src` dalam `content.js`. File yang ditambahkan tidak otomatis masuk halaman.
 
 ```js
 "media": {
   "type": "photo",
-  "src": "public/photos/kita.jpg",
-  "alt": "Kita berdua di pantai",
-  "note": "Sore favoritku.",
+  "src": "public/photos/foto-01.jpeg",
+  "alt": "puzukuzuw & mizukuzuw",
+  "note": "",
+  "orientation": "portrait",
   "fit": "cover",
   "position": "center"
 }
 ```
 
-Untuk menggantinya dengan video, ubah `type` dan `src`:
+`media` untuk satu foto; `mediaItems` untuk beberapa foto. `orientation` dapat berupa `portrait` atau `landscape`. Caption di dalam bingkai memakai `note` pada media; tulisan di bawah bingkai memakai `paragraphs` atau `note` pada halaman. Untuk menambah halaman, salin objek dalam `pages` lalu sesuaikan isinya. Judul dan tulisan dapat memakai `\n` untuk baris baru.
 
-```js
-"media": {
-  "type": "video",
-  "src": "public/videos/kita.mp4",
-  "poster": "public/photos/sampul-video.jpg",
-  "alt": "Video kita berdua",
-  "note": "Putar lagi, ya.",
-  "fit": "cover",
-  "position": "center"
-}
-```
+Saat ini semua media buku adalah foto. Renderer tetap mendukung `type: "video"` dengan `src` video dan `poster` opsional bila suatu saat diperlukan.
 
-`poster` opsional. Tanpa poster, thumbnail menggunakan elemen video dengan preload metadata. Ketuk media untuk membuka player dengan tombol play, volume, dan fullscreen. Tidak ada autoplay. Untuk kembali ke foto, ubah type menjadi photo dan src ke file gambar; poster lama akan diabaikan.
+## Interaksi dan tampilan
 
-`fit: "contain"` menampilkan gambar utuh; `cover` memenuhi bingkai dengan pemotongan. `position` mengatur bagian gambar yang terlihat, misalnya `center top`. Hapus properti `media` atau isi `null` untuk halaman tanpa media. Foto/video asli diperbesar dalam dialog tanpa crop.
+- Swipe kiri/kanan, drag mouse, keyboard panah, dan menu Isi buku untuk navigasi.
+- Laptop dan iPad landscape menampilkan dua halaman; HP dan tablet portrait menampilkan satu halaman.
+- Ukuran buku mengikuti ruang layar; teks diukur agar tidak perlu scroll di dalam halaman.
+- Foto dapat diketuk untuk diperbesar, lalu pilih `balikw` untuk menutup.
+- Halaman 6: strip foto kiri turun dan kanan naik.
+- Halaman 8: kamera otomatis menjepret setiap 2,5 detik, bergantian tiga foto, dengan flash lokal. Tombol manual tetap tersedia.
+- Sesudah halaman 10, swipe lagi untuk menutup sampul dan memunculkan Nailong berjalan membawa love setelah 0,5 detik.
 
-## Menambah halaman
+Stiker bergerak dicampur dengan stiker statis di dalam buku, maksimal dua animasi per halaman. Animasi halaman berhenti saat tidak terlihat, sedang dibalik, atau viewer terbuka. GIF di luar layar juga diganti gambar diam. Tombol `istirahat duluw` menjeda stiker bergerak. Reduced motion mengikuti pengaturan perangkat.
 
-Salin salah satu objek di `pages` lalu edit:
+Ubah `pageAnimations` menjadi `false` di `nailong-content.js` untuk mematikan GIF dalam buku saja. Daftar `animatedFriends` mengatur 15 variasi GIF. Pengaturan `ending` mengatur GIF penutup, jeda, durasi, dan teksnya. Cadangan percobaan lama di `revisions/` hanya lokal dan tidak ikut Git.
 
-```js
-{
-  "label": "HARI FAVORIT",
-  "title": "Sore itu,\nsama kamu.",
-  "paragraphs": ["Paragraf pertama.", "Paragraf kedua."],
-  "media": { "type": "photo", "src": "public/photos/kita.jpg", "alt": "Foto kita", "note": "just us." },
-  "note": "Catatan tulisan tangan."
-}
-```
+## Musik
 
-`entries` opsional untuk cerita/timeline, dengan label, title, text. Semua halaman mendukung media, paragraf, entries, dan note. Halaman dengan banyak teks memanjang agar tulisan tidak terpotong; pecah surat panjang menjadi beberapa halaman untuk tampilan buku yang seimbang.
-
-Laptop menampilkan dua halaman; HP menampilkan satu. Swipe ke kiri untuk lanjut dan ke kanan untuk balik, termasuk dari atas foto/video. Di laptop, klik-tahan lalu geser buku; keyboard kiri/kanan dan daftar Isi buku juga tersedia. Tombol sebelumnya/berikutnya dihilangkan. Jumlah halaman dan nomor diperbarui otomatis. Sampul dapat dibuka kembali melalui brand di kiri atas atau daftar isi.
-
-Simpan lalu refresh browser setelah edit. File baru tidak otomatis masuk buku: masukkan path-nya ke content.js. Gunakan nama file sederhana dan perhatikan huruf besar/kecil. Disarankan MP4 H.264/AAC dan media yang telah dikompres.
-
-Ilustrasi bawaan hanya placeholder. Versi desain scroll sebelumnya tersimpan lengkap di archive-scroll. Font memakai Google Fonts dengan fallback lokal. Untuk hosting cukup upload index.html, style.css, app.js, swipe.js, content.js, dan folder public. Perubahan lokal memerlukan deploy ulang agar terlihat pada website online.
-
-## Animasi buku
-
-Efek lipatan memakai StPageFlip 2.0.7 (MIT), disimpan lokal di `public/vendor/` bersama lisensinya. Sumber: https://github.com/Nodlik/StPageFlip. Sertakan folder vendor saat hosting. Tidak perlu React atau npm.
-
-Geser horizontal di area buku untuk membalik. Gestur ditangani di swipe.js; setelah dilepas, StPageFlip menjalankan animasi hardcover untuk sampul dan lipatan kertas dengan bayangan untuk isi. Swipe tidak harus cepat, scroll vertikal tetap bisa, dan swipe di atas media tidak membuka viewer. Preferensi sistem reduced motion menonaktifkan animasi dan memakai pergantian halaman langsung.
-
-Ukuran lembaran tetap stabil saat dibalik. Jika tulisan terlalu panjang, bagian isi halaman bisa di-scroll; sebaiknya pecah teks panjang menjadi beberapa halaman. Format content.js dan cara mengganti foto/video tetap sama. Sampul belakang mengikuti judul dan identitas sampul depan, dengan pesan ui.end.
-
-Petunjuk geser bisa diedit di ui.hint, ui.coverHint, dan ui.backHint dalam content.js. Nama puzukuzuw & mizukuzuw dan semua kalimat tetap bisa diganti di file yang sama. Narator memakai puzukuzuw, penerima memakai mizukuzuw.
-
-Tes regresi gestur: `node --test tests/swipe.test.cjs` (butuh Node hanya untuk tes, bukan untuk menjalankan website). Navigasi maju/balik juga diperiksa dengan drag langsung di browser pada viewport 320, 390, 768, dan 1440 piksel, termasuk kembali ke sampul depan dan dari sampul belakang. Ini simulasi ukuran layar di browser desktop, bukan tes sentuhan di perangkat HP fisik.
+Lagu BEAUTiFUL — Paul Partohap ada di `public/music/beautiful.mp3`. Klik tombol pembuka hadiah untuk memulai buku dan mencoba memutar musik dari interaksi pengguna. Browser dapat membatasi autoplay tanpa interaksi; tombol play/pause tetap tersedia. Previous/next nonaktif karena hanya satu lagu. Ganti file atau pengaturannya di `music-content.js`.
 
 ## GitHub Pages
 
-Setelah push ke GitHub, buka Settings > Pages:
+Semua aset memakai path relatif, sehingga dapat dihosting pada subfolder project GitHub Pages tanpa npm, React, atau server. `.nojekyll` tersedia agar file statis langsung disajikan.
 
-1. Source: Deploy from a branch.
-2. Branch: main, folder: / (root).
-3. Klik Save dan tunggu deployment selesai.
+Setelah push, buka repository **Settings → Pages**:
+
+1. Source: **Deploy from a branch**.
+2. Branch: **main**, folder **/ (root)**.
+3. Klik **Save** dan tunggu deployment selesai.
 
 Alamat situs: https://rafalino26.github.io/scrapbook-online/
 
-Semua path asset relatif sehingga kompatibel dengan subfolder project GitHub Pages. File .nojekyll menghindari pemrosesan Jekyll. Folder archive-scroll disimpan lokal dan tidak ikut push.
+Halaman utama hanya `index.html`; versi non-Nailong sudah dihapus. Setelah mengubah konten/aset, commit dan push ulang. Jika mengganti JS/CSS, perbarui parameter versi pada URL di `index.html` agar cache lama tidak terpakai.
 
-Responsivitas diperiksa pada viewport 320x568, 390x844, 768x1024, 1024x768, dan 1440x900. HP memakai satu halaman, layar lebar dua halaman. Layar pendek tetap bisa scroll vertikal dan teks panjang bisa scroll di dalam halaman. Pemeriksaan ini memakai browser desktop dengan ukuran viewport berbeda; pengujian perangkat HP asli tetap berguna untuk gestur dan performa.
+GitHub Pages pada GitHub Free memerlukan repository public. GitHub Pro/Team mendukung Pages dari repository private juga. Referensi: https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages
+
+## Validasi
+
+```powershell
+node --test tests/swipe.test.cjs tests/music-player.test.cjs
+node tools/verify-site.cjs
+```
+
+Node hanya dipakai untuk pemeriksaan, bukan untuk menjalankan website. Pemeriksaan responsif menggunakan browser desktop pada berbagai ukuran viewport, belum pengujian sentuhan di iPad/HP fisik.
+
+PageFlip 2.0.7 beserta lisensi MIT disimpan di `public/vendor/`. Sumber ilustrasi dan stiker dicatat di `public/nailong/SOURCES.md` serta manifest sumber di folder yang sama.
