@@ -1,0 +1,75 @@
+/* All motion uses transforms/opacity, and the actual photo buttons stay intact. */
+.album-motion .album-canvas>.polaroid{transform-origin:50% 50%}
+.album-motion-toggle{top:0;right:0;opacity:.65;transition:opacity .2s}
+.album-motion-toggle:hover,.album-motion-toggle:focus-visible{opacity:1}
+
+/* 5 — a little breeze through the washing line. */
+.layout-hanging.album-motion[aria-hidden=false] .album-canvas>.polaroid:nth-of-type(-n+2){
+  transform-origin:50% -14px;
+  animation:keepsake-sway 7s cubic-bezier(.45,0,.55,1) infinite;
+}
+.layout-hanging.album-motion[aria-hidden=false] .album-canvas>.polaroid:nth-of-type(2){animation-duration:8.6s;animation-delay:-3.1s;--sway-direction:-1}
+.layout-hanging.album-motion[aria-hidden=false] .album-canvas>.polaroid:nth-of-type(3){animation:keepsake-paper-breathe 11s ease-in-out infinite;animation-delay:-4s}
+.layout-hanging.album-motion[aria-hidden=false] .album-cord{transform-origin:50% 0;animation:keepsake-cord 7.8s ease-in-out infinite}
+.layout-hanging.album-motion[aria-hidden=false] .album-spark{animation:keepsake-heart 5.4s ease-in-out infinite}
+@keyframes keepsake-sway{
+  0%,100%{transform:rotate(calc(-2.2deg * var(--sway-direction,1)))}
+  50%{transform:rotate(calc(2.2deg * var(--sway-direction,1)))}
+}
+@keyframes keepsake-paper-breathe{0%,100%{transform:translateY(0) rotate(-.5deg)}50%{transform:translateY(-6px) rotate(.5deg)}}
+@keyframes keepsake-cord{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(1px) scaleY(1.035)}}
+@keyframes keepsake-heart{0%,100%{transform:translateY(0) scale(.94);opacity:.65}50%{transform:translateY(-5px) scale(1.05);opacity:1}}
+
+/* 7 — three airmail stamps, pressed onto the page in order. */
+.layout-postage.album-motion[aria-hidden=false] .album-canvas>.polaroid{
+  animation:keepsake-stamp .85s cubic-bezier(.2,.7,.25,1) both,keepsake-airmail 12s ease-in-out 1.2s infinite;
+}
+.layout-postage.album-motion[aria-hidden=false] .album-canvas>.polaroid:nth-of-type(2){animation-delay:.24s,1.44s;--air-direction:-1}
+.layout-postage.album-motion[aria-hidden=false] .album-canvas>.polaroid:nth-of-type(3){animation-delay:.48s,1.68s;--air-direction:1}
+.layout-postage .album-cord:before{content:'♡';display:grid;place-items:center;position:absolute;left:5%;top:-15px;width:70px;height:70px;border:2px solid #aa876c88;outline:1px dashed #aa876c88;outline-offset:-6px;border-radius:50%;font:32px var(--hand);color:#aa876c;opacity:.7}
+.layout-postage.album-motion .album-cord{left:0;right:auto;top:54px;width:35%;z-index:1}
+.layout-postage.album-motion .album-spark{left:28%;top:133px;font-size:30px}
+.layout-postage.album-motion[aria-hidden=false] .album-cord{animation:keepsake-postmark .55s ease-out .95s both}
+.layout-postage.album-motion[aria-hidden=false] .album-spark{animation:keepsake-heart 6s ease-in-out 1.1s infinite}
+@keyframes keepsake-stamp{
+  0%{opacity:0;scale:1.14}
+  65%{opacity:1;scale:.965}
+  82%{scale:1.015}
+  100%{opacity:1;scale:1}
+}
+@keyframes keepsake-postmark{0%{opacity:0;scale:1.18}70%{opacity:.75;scale:.97}100%{opacity:.5;scale:1}}
+@keyframes keepsake-airmail{
+  0%,100%{transform:translateY(0) rotate(0)}
+  50%{transform:translateY(-4px) rotate(calc(.65deg * var(--air-direction,1)))}
+}
+
+/* 9 — a small stack opens into a fan, then gently lifts at its corners. */
+.layout-ribbon.album-motion[aria-hidden=false] .album-canvas>.polaroid{
+  --fan-x:45px;--fan-y:95px;--fan-angle:12deg;
+  animation:keepsake-unfold 1.1s cubic-bezier(.18,.75,.25,1) both,keepsake-ribbon-float 11s ease-in-out 1.2s infinite;
+}
+.layout-ribbon.album-motion[aria-hidden=false] .album-canvas>.polaroid:nth-of-type(2){--fan-x:-75px;--fan-y:160px;--fan-angle:-18deg;animation-delay:.18s,1.38s;--float-angle:-1deg}
+.layout-ribbon.album-motion[aria-hidden=false] .album-canvas>.polaroid:nth-of-type(3){--fan-x:-35px;--fan-y:-120px;--fan-angle:-12deg;animation-delay:.36s,1.56s;--float-angle:1deg}
+.layout-ribbon.album-motion[aria-hidden=false] .album-ribbon{transform-origin:15% 50%;animation:keepsake-ribbon-tie 1.2s cubic-bezier(.2,.7,.2,1) .65s both}
+.layout-ribbon.album-motion[aria-hidden=false] .album-cord{animation:keepsake-stamp .65s ease .95s both}
+.layout-ribbon.album-motion[aria-hidden=false] .album-spark{animation:keepsake-heart 5.8s ease-in-out infinite}
+@keyframes keepsake-unfold{
+  from{opacity:0;transform:translate(var(--fan-x),var(--fan-y)) rotate(var(--fan-angle)) scale(.82)}
+  35%{opacity:1}
+  to{opacity:1;transform:translate(0,0) rotate(0) scale(1)}
+}
+@keyframes keepsake-ribbon-float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(var(--float-angle,.6deg))}}
+@keyframes keepsake-ribbon-tie{from{opacity:0;transform:scaleX(.25)}to{opacity:1;transform:scaleX(1)}}
+
+/* Run only on the visible, open spread; pause without hiding photo buttons. */
+.album-motion .album-canvas>.polaroid,.album-motion .album-cord,.album-motion .album-ribbon,.album-motion .album-spark{animation-play-state:paused!important}
+:where(.book-stage.album-in-view:not(.turning)) .album-motion:where([aria-hidden=false]) .album-canvas>.polaroid,
+:where(.book-stage.album-in-view:not(.turning)) .album-motion:where([aria-hidden=false]) .album-cord,
+:where(.book-stage.album-in-view:not(.turning)) .album-motion:where([aria-hidden=false]) .album-ribbon,
+:where(.book-stage.album-in-view:not(.turning)) .album-motion:where([aria-hidden=false]) .album-spark{animation-play-state:running!important}
+.album-motion.photos-paused .album-canvas>.polaroid,.album-motion.photos-paused .album-cord,.album-motion.photos-paused .album-ribbon,.album-motion.photos-paused .album-spark,
+.document-hidden .album-motion .album-canvas>*,body:has(dialog[open]) .album-motion .album-canvas>*{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){
+  .album-motion .album-canvas>*{animation:none!important}
+  .album-motion-toggle{display:none}
+}

@@ -128,6 +128,15 @@
       if(page.layout==='film')filmReels(gallery,page,article);
       else if(page.layout==='camera')instantCamera(gallery,page);
       else page.mediaItems.forEach(media=>gallery.append(mediaCard(media,page.title)));
+      if(['hanging','postage','ribbon'].includes(page.layout)){
+        article.classList.add('album-motion');
+        const pause=node('button','film-pause album-motion-toggle','Ⅱ');pause.type='button';
+        pause.setAttribute('aria-label',`Jeda gerakan foto halaman ${index+1}`);pause.setAttribute('aria-pressed','false');
+        pause.addEventListener('click',()=>{
+          const paused=article.classList.toggle('photos-paused');pause.textContent=paused?'▶':'Ⅱ';
+          pause.setAttribute('aria-pressed',String(paused));pause.setAttribute('aria-label',`${paused?'Lanjutkan':'Jeda'} gerakan foto halaman ${index+1}`);
+        });gallery.append(pause);
+      }
       body.append(gallery);
     }
     if (page.media) body.append(mediaCard(page.media,page.title));
@@ -287,6 +296,8 @@
   $('viewer').addEventListener('click',e=>{if(e.target!==$('viewer'))return;const r=$('viewer').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeViewer();});
   $('viewer').addEventListener('close',()=>{stopVideos($('viewer'));$('viewer-media').replaceChildren();lastMediaTrigger?.focus({preventScroll:true});});
   const progress=node('div','reading-progress');progress.setAttribute('aria-hidden','true');const fill=node('span');fill.id='progress';progress.append(fill);document.querySelector('.reader-controls').after(progress);
+  // One observer for the stable stage; resizing rebuilds leaves, not this node.
+  new IntersectionObserver(entries=>{$('stage').classList.toggle('album-in-view',entries[0].isIntersecting);}).observe($('stage'));
   initialize();
   document.addEventListener('visibilitychange',()=>{document.body.classList.toggle('document-hidden',document.hidden);updateCameras();});
   const cameraDialogs=new MutationObserver(updateCameras);

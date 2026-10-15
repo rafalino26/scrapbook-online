@@ -42,9 +42,12 @@ Saat ini semua media buku adalah foto. Renderer tetap mendukung `type: "video"` 
 - Foto dapat diketuk untuk diperbesar, lalu pilih `balikw` untuk menutup.
 - Halaman 6: strip foto kiri turun dan kanan naik.
 - Halaman 8: kamera otomatis menjepret setiap 2,5 detik, bergantian tiga foto, dengan flash lokal. Tombol manual tetap tersedia.
+- Halaman 5: foto gantung berayun pelan. Halaman 7: perangko ditempel bergantian lalu cap hati muncul. Halaman 9: tumpukan foto membuka seperti kipas, diikuti pita dan gerakan pelan. Tombol jeda kecil tersedia di setiap halaman tersebut.
 - Sesudah halaman 10, swipe lagi untuk menutup sampul dan memunculkan Nailong berjalan membawa love setelah 0,5 detik.
 
 Stiker bergerak dicampur dengan stiker statis di dalam buku, maksimal dua animasi per halaman. Animasi halaman berhenti saat tidak terlihat, sedang dibalik, atau viewer terbuka. GIF di luar layar juga diganti gambar diam. Tombol `istirahat duluw` menjeda stiker bergerak. Reduced motion mengikuti pengaturan perangkat.
+
+Animasi foto halaman 5/7/9 ada di `album-motion.css`. Efek masuk diputar ulang saat halaman dibuka kembali; gerakan dijeda ketika buku di luar viewport, halaman tidak aktif, sedang dibalik, viewer terbuka, atau tab di latar. Reduced motion menampilkan komposisi diam. Tidak ada file foto baru atau library animasi tambahan.
 
 Ubah `pageAnimations` menjadi `false` di `nailong-content.js` untuk mematikan GIF dalam buku saja. Daftar `animatedFriends` mengatur 15 variasi GIF. Pengaturan `ending` mengatur GIF penutup, jeda, durasi, dan teksnya. Cadangan percobaan lama di `revisions/` hanya lokal dan tidak ikut Git.
 
