@@ -70,6 +70,8 @@ GitHub Pages pada GitHub Free memerlukan repository public. GitHub Pro/Team mend
 
 ## Validasi
 
+Swipe sentuh mengabaikan `lostpointercapture` dari elemen anak ketika browser memindahkan implicit capture ke area buku. Kehilangan capture pada area buku itu sendiri tetap membatalkan gestur. Regresi khusus sentuhan ini tercakup di tes swipe; uji viewport desktop saja tidak mensimulasikan seluruh perilaku sentuh perangkat nyata.
+
 ```powershell
 node --test tests/swipe.test.cjs tests/music-player.test.cjs
 node tools/verify-site.cjs

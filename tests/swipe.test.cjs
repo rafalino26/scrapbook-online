@@ -15,7 +15,7 @@ function setup(width = 350) {
   };
   bindBookSwipe(stage,direction=>turns.push(direction),()=>time);
   const emit = (type,props={}) => {
-    const event={pointerId:1,isPrimary:true,button:0,clientX:200,clientY:200,cancelable:true,detail:1,
+    const event={target:stage,pointerId:1,isPrimary:true,button:0,clientX:200,clientY:200,cancelable:true,detail:1,
       defaultPrevented:false,stopped:false,preventDefault(){this.defaultPrevented=true;},stopImmediatePropagation(){this.stopped=true;},...props};
     for(const fn of handlers.get(type)||[]) { fn(event); if(event.stopped)break; }
     return event;
@@ -61,4 +61,28 @@ test('vertical scroll keeps its direction even when the finger drifts sideways',
 test('right clicks are ignored and narrow screens accept a comfortable swipe',()=>{
   const s=setup(280);s.emit('pointerdown',{button:2});s.emit('pointerup',{clientX:50});
   assert.deepEqual(s.turns,[]);s.swipe(160,125);assert.deepEqual(s.turns,['next']);
+});
+
+test('touch capture transferred from a photo to the stage does not cancel the swipe',()=>{
+  const s=setup(),photo={tagName:'BUTTON'};
+  // Touch browsers implicitly capture on the initial child. Transferring that
+  // capture to stage emits a bubbling lostpointercapture from the child.
+  for(const [from,to] of [[280,70],[70,280]]){
+    s.emit('pointerdown',{pointerType:'touch',target:photo,clientX:from});
+    s.emit('pointermove',{pointerType:'touch',target:photo,clientX:to});
+    s.emit('lostpointercapture',{pointerType:'touch',target:photo});
+    s.emit('pointerup',{pointerType:'touch',clientX:to});
+  }
+  assert.deepEqual(s.turns,['next','previous']);
+  assert.equal(s.captures.size,0);assert.equal(s.classes.size,0);
+});
+
+test('losing capture on the stage itself still cancels safely',()=>{
+  const s=setup();
+  s.emit('pointerdown',{pointerType:'touch'});
+  s.emit('pointermove',{pointerType:'touch',clientX:70});
+  s.emit('lostpointercapture',{pointerType:'touch'});
+  s.emit('pointerup',{pointerType:'touch',clientX:70});
+  assert.deepEqual(s.turns,[]);
+  s.swipe(70,280);assert.deepEqual(s.turns,['previous']);
 });

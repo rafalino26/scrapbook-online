@@ -136,6 +136,7 @@
     if (page.note) body.append(node('p','hand page-note',page.note));
     body.setAttribute('tabindex','0');
     article.append(body,node('div','folio',String(index+1).padStart(2,'0')));
+    if(page.swipeHint)article.append(node('p','hand page-swipe-hint',page.swipeHint));
     theme?.decoratePage(article,index);
     return article;
   }

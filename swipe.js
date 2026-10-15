@@ -40,7 +40,10 @@ function bindBookSwipe(stage, turn, now = () => Date.now()) {
     release(event.pointerId);
   };
   stage.addEventListener('pointercancel',cancel);
-  stage.addEventListener('lostpointercapture',cancel);
+  // Touch starts with implicit capture on the touched child. Moving capture to
+  // stage emits lostpointercapture on that child, and it bubbles here. Only a
+  // loss belonging to stage itself cancels our gesture.
+  stage.addEventListener('lostpointercapture',event=>{if(event.target===stage)cancel(event);});
   stage.addEventListener('dragstart',event=>event.preventDefault());
   stage.addEventListener('click',event=>{
     if (event.detail !== 0 && now()<suppressClickUntil) {

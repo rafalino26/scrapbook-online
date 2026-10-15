@@ -384,12 +384,11 @@ window.SCRAPBOOK = {
     },
     {
       "label": "",
-      "title": "Udah sampai belakangw.",
+      "title": "SUDAHHH HABISWWW YAYEYYY",
       "closing": true,
-      "paragraphs": [
-        "Nanti puzukuzuw & mizukuzuw isi lagi, yaa."
-      ],
+      "paragraphs": [],
       "note": "sayang mizukuzuw. kangenw juga.",
+      "swipeHint": "SWIPE LAGIW SAMPE BUKUNYAW TERTUTUPWW",
       "media": {
         "type": "photo",
         "src": "public/photos/foto-01.jpeg",
